@@ -1,6 +1,21 @@
 <?php
+$message = '' ;
 
+if(isset($_GET['length']) && !empty($_GET['length'])){
+  $length = $_GET['length'];
+  $password = generatePassword($length);
+  $message = "La tua password e': $password";
+}
 
+function generatePassword($length){
+  $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+  $password = '';
+  for ($i=0 ; $i < $length; $i++){
+    $random = rand(0, strlen($characters) - 1);
+    $password .= $characters[$random];  
+  }
+  return $password;
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +37,9 @@
 <input type="submit" value="Genera">
 
 </form>
+
+<p> <?php echo $message; ?> </p>
+
 
 </div>
 
