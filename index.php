@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/partials/functions.php';
+
+
 $message = '' ;
 
 if(isset($_GET['length']) && !empty($_GET['length'])){
@@ -7,15 +10,7 @@ if(isset($_GET['length']) && !empty($_GET['length'])){
   $message = "La tua password e': $password";
 }
 
-function generatePassword($length){
-  $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
-  $password = '';
-  for ($i=0 ; $i < $length; $i++){
-    $random = rand(0, strlen($characters) - 1);
-    $password .= $characters[$random];  
-  }
-  return $password;
-}
+
 ?>
 
 <!DOCTYPE html>
