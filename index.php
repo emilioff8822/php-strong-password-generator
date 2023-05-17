@@ -7,7 +7,7 @@ session_start();
 
 if(isset($_GET['length']) && !empty($_GET['length'])){
   $length = $_GET['length'];
-  $password = generatePassword($length);
+  $password = generatePassword($length);  
   $_SESSION ['message'] = "$password";
 
 
