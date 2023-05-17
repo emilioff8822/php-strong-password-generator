@@ -1,13 +1,18 @@
 <?php
 require_once __DIR__ . '/partials/functions.php';
 
+session_start();
 
-$message = '' ;
+
 
 if(isset($_GET['length']) && !empty($_GET['length'])){
   $length = $_GET['length'];
   $password = generatePassword($length);
-  $message = "La tua password e': $password";
+  $_SESSION ['message'] = "La tua password e': $password";
+
+
+header('Location: ./atterraggio.php');
+exit;
 }
 
 
